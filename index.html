@@ -1,0 +1,150 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Skills</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: #ededf9;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+      .container {
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        width: 90%;
+        max-width: 600px;
+      }
+      .container h1 {
+        font-size: 24px;
+        font-weight: 700;
+        margin: 0;
+        color: #000000;
+      }
+      .container p {
+        font-size: 14px;
+        color: #8484a7;
+        margin: 0 0 20px;
+        line-height: 200%;
+      }
+      .input-group {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+      .input-group input {
+        flex: 1;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        outline: none;
+        margin-right: 10px;
+      }
+      .input-group button {
+        background-color: #523fff;
+        border: none;
+        color: #fff;
+        padding: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .skills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      .skill {
+        background-color: #ededf9;
+        border: 1px solid #ddd;
+        border-radius: 20px;
+        padding: 5px 15px;
+        display: flex;
+        align-items: center;
+        font-size: 14px;
+      }
+      .skill i {
+        margin-left: 10px;
+        cursor: pointer;
+        transition: color 0.3s;
+      }
+      .skill i:hover {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>My Skills</h1>
+
+
+      <p>Enter skills that will make you stand out</p>
+
+      <div class="input-group">
+        <input type="text" id="skillInput" placeholder="Add comment..." />
+        <button onclick="addSkill()"><i class="fas fa-plus"></i></button>
+      </div>
+
+      <div class="skills" id="skillsContainer">
+        <div class="skill">
+          Graphic Design
+          <i class="fas fa-times" onclick="removeSkill(this)"></i>
+        </div>
+        <div class="skill">
+          Software Engineering
+          <i class="fas fa-times" onclick="removeSkill(this)"></i>
+        </div>
+        <div class="skill">
+          Cloud Computing
+          <i class="fas fa-times" onclick="removeSkill(this)"></i>
+        </div>
+        <div class="skill">
+          Networking <i class="fas fa-times" onclick="removeSkill(this)"></i>
+        </div>
+        <div class="skill">
+          Data Analysis <i class="fas fa-times" onclick="removeSkill(this)"></i>
+        </div>
+        <div class="skill">
+          Machine Learning
+          <i class="fas fa-times" onclick="removeSkill(this)"></i>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function addSkill() {
+        const skillInput = document.getElementById("skillInput");
+        const skillValue = skillInput.value.trim();
+        if (skillValue) {
+          const skillsContainer = document.getElementById("skillsContainer");
+          const newSkill = document.createElement("div");
+          newSkill.className = "skill";
+          newSkill.innerHTML = `${skillValue} <i class="fas fa-times" onclick="removeSkill(this)"></i>`;
+          skillsContainer.appendChild(newSkill);
+          skillInput.value = "";
+        }
+      }
+
+      function removeSkill(element) {
+        const skill = element.parentElement;
+        skill.remove();
+      }
+    </script>
+  </body>
+</html>
